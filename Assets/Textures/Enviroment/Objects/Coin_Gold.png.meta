@@ -55,7 +55,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -135,7 +135,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: _Spritesheet_Coin_Gold_0
+      name: Coin_Gold_0
       rect:
         serializedVersion: 2
         x: 0
@@ -149,14 +149,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bbb376bfe3230d400800000000000000
-      internalID: 346832417394736059
+      spriteID: 689d8b0da2852f54aa5940c974f75b88
+      internalID: -1125460127
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: _Spritesheet_Coin_Gold_1
+      name: Coin_Gold_1
       rect:
         serializedVersion: 2
         x: 16
@@ -170,14 +170,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bb53040220c765c40800000000000000
-      internalID: 5500720343452497339
+      spriteID: 6c190572cad7d054bbc1c16154101302
+      internalID: -1585315512
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: _Spritesheet_Coin_Gold_2
+      name: Coin_Gold_2
       rect:
         serializedVersion: 2
         x: 32
@@ -191,14 +191,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a4c3901e3eadd6180800000000000000
-      internalID: -9120392998087476150
+      spriteID: af353617c8859bc40bfd0019c4ca8e27
+      internalID: -1302362670
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: _Spritesheet_Coin_Gold_3
+      name: Coin_Gold_3
       rect:
         serializedVersion: 2
         x: 48
@@ -212,8 +212,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8644592f1d84c5fd0800000000000000
-      internalID: -2351924838839008152
+      spriteID: 2776ef0c42f28144e89d63b9c9208275
+      internalID: -1950091996
       vertices: []
       indices: 
       edges: []
@@ -229,10 +229,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      _Spritesheet_Coin_Gold_0: 346832417394736059
-      _Spritesheet_Coin_Gold_1: 5500720343452497339
-      _Spritesheet_Coin_Gold_2: -9120392998087476150
-      _Spritesheet_Coin_Gold_3: -2351924838839008152
+      Coin_Gold_0: -1125460127
+      Coin_Gold_1: -1585315512
+      Coin_Gold_2: -1302362670
+      Coin_Gold_3: -1950091996
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

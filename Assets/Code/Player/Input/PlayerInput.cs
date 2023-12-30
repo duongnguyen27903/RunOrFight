@@ -44,6 +44,15 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""SwitchPower"",
+                    ""type"": ""Button"",
+                    ""id"": ""6335bee4-9303-440a-97d5-dd7ae76c1280"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -112,6 +121,17 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""action"": ""Movement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""8d62c176-32e1-4dfb-8a31-8917d3808757"",
+                    ""path"": """",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SwitchPower"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -122,6 +142,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         m_Player_Run = asset.FindActionMap("Player_Run", throwIfNotFound: true);
         m_Player_Run_Jump = m_Player_Run.FindAction("Jump", throwIfNotFound: true);
         m_Player_Run_Movement = m_Player_Run.FindAction("Movement", throwIfNotFound: true);
+        m_Player_Run_SwitchPower = m_Player_Run.FindAction("SwitchPower", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -185,12 +206,14 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
     private List<IPlayer_RunActions> m_Player_RunActionsCallbackInterfaces = new List<IPlayer_RunActions>();
     private readonly InputAction m_Player_Run_Jump;
     private readonly InputAction m_Player_Run_Movement;
+    private readonly InputAction m_Player_Run_SwitchPower;
     public struct Player_RunActions
     {
         private @PlayerInput m_Wrapper;
         public Player_RunActions(@PlayerInput wrapper) { m_Wrapper = wrapper; }
         public InputAction @Jump => m_Wrapper.m_Player_Run_Jump;
         public InputAction @Movement => m_Wrapper.m_Player_Run_Movement;
+        public InputAction @SwitchPower => m_Wrapper.m_Player_Run_SwitchPower;
         public InputActionMap Get() { return m_Wrapper.m_Player_Run; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -206,6 +229,9 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             @Movement.started += instance.OnMovement;
             @Movement.performed += instance.OnMovement;
             @Movement.canceled += instance.OnMovement;
+            @SwitchPower.started += instance.OnSwitchPower;
+            @SwitchPower.performed += instance.OnSwitchPower;
+            @SwitchPower.canceled += instance.OnSwitchPower;
         }
 
         private void UnregisterCallbacks(IPlayer_RunActions instance)
@@ -216,6 +242,9 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             @Movement.started -= instance.OnMovement;
             @Movement.performed -= instance.OnMovement;
             @Movement.canceled -= instance.OnMovement;
+            @SwitchPower.started -= instance.OnSwitchPower;
+            @SwitchPower.performed -= instance.OnSwitchPower;
+            @SwitchPower.canceled -= instance.OnSwitchPower;
         }
 
         public void RemoveCallbacks(IPlayer_RunActions instance)
@@ -237,5 +266,6 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
     {
         void OnJump(InputAction.CallbackContext context);
         void OnMovement(InputAction.CallbackContext context);
+        void OnSwitchPower(InputAction.CallbackContext context);
     }
 }

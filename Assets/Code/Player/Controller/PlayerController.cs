@@ -5,25 +5,6 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    //khai bao animator cho nhan vat
-    [SerializeField] private Animator animator;
-    private int ChangeHash;
-    private int StateHash;
-
-    //cac ham chay animation cua nhan vat
-    [ContextMenu("PlayIdleAnimation")]
-    private void PlayIdleAnimation()
-    {
-        animator.SetTrigger(ChangeHash);
-        animator.SetInteger(StateHash,0);
-    }
-    [ContextMenu("PlayWalkAnimation")]
-    private void PlayWalkAnimation()
-    {
-        animator.SetTrigger(ChangeHash);
-        animator.SetInteger(StateHash,1);
-    }
-
     //khai bao input cho player
     private PlayerInput Input;
     private float horizontal;
@@ -45,30 +26,41 @@ public class PlayerController : MonoBehaviour
     }
     private void OnDisable()
     {
-        if( Input != null)
+        if (Input == null)
         {
-            Input.Disable();
+            return;
         }
+        Input.Disable();
     }
     private void OnMovement(UnityEngine.InputSystem.InputAction.CallbackContext context)
     {
         if (context.performed || context.started)
         {
             horizontal = context.ReadValue<Vector2>().x;
-            PlayWalkAnimation();
+            animatorController.PlayRunAnimation();
         }
         else if( context.canceled)
         {
             horizontal = 0f;
-            PlayIdleAnimation();
+            int x = UnityEngine.Random.Range(1, 2);
+            if( x == 1)
+            {
+                animatorController.PlayIdle1Animation();
+            }
+            else
+            {
+                animatorController.PlayIdle2Animation();
+            }
 
         }
     }
+    [SerializeField] private int JumpCount;
     private void OnJump(UnityEngine.InputSystem.InputAction.CallbackContext context)
     {
-        if( context.performed && IsGrounded())
+        if( context.performed && (IsGrounded() || JumpCount<1))
         {
             rb.AddForce(new Vector2(rb.velocity.x, JumpForce), ForceMode2D.Impulse);
+            JumpCount++;
         }
     }
 
@@ -87,20 +79,26 @@ public class PlayerController : MonoBehaviour
         Gizmos.DrawWireSphere(positionCheck.position, 0.2f);
     }
 
+    
+
     //khai bao thuoc tinh cua nhan vat
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private float MoveSpeed;
     [SerializeField] private float JumpForce;
+
+    private AnimatorController animatorController;
     void Start()
     {
-        ChangeHash = Animator.StringToHash("Change");
-        StateHash = Animator.StringToHash("State");
+        animatorController = FindObjectOfType<AnimatorController>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (transform.position.y < -20) Time.timeScale = 0;
+        if (IsGrounded()) JumpCount = 0;
         rb.velocity = new Vector2( MoveSpeed * horizontal, rb.velocity.y);
+        animatorController.PlayRunAnimation();
     }
 
     public Vector3 GetPlayerPosition()
