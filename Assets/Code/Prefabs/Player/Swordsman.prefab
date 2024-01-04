@@ -128,7 +128,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 2
+  m_GravityScale: 10
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -197,13 +197,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 983f2d82ef151554cbceddf13b0bb2aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  JumpCount: 0
   positionCheck: {fileID: 5999247516113284190}
   groundCheck:
     serializedVersion: 2
     m_Bits: 128
   rb: {fileID: 3266327636155323970}
   MoveSpeed: 10
-  JumpForce: 10
+  JumpForce: 30
+  Score: 0
 --- !u!114 &1779095645735963484
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5012,8 +5014,8 @@ ParticleSystemRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1948416459
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_RenderMode: 0
   m_MeshDistribution: 0
@@ -9880,8 +9882,8 @@ ParticleSystemRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1948416459
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_RenderMode: 0
   m_MeshDistribution: 0

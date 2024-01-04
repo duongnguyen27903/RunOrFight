@@ -18,7 +18,7 @@ public class Grounds_Pool : MonoBehaviour
     }
     [SerializeField] private List<GameObject> prefabs;
     private List<GameObject> grounds = new();
-
+    private GameObject Generate_Grounds;
     private void Awake()
     {
         if( Instance == null)
@@ -29,6 +29,7 @@ public class Grounds_Pool : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        Generate_Grounds = GameObject.Find("Generate_Grounds");
     }
 
     public void Add_Grounds(GameObject obj)
@@ -41,6 +42,7 @@ public class Grounds_Pool : MonoBehaviour
             }
         }
         obj.SetActive(false);
+        obj.transform.SetParent(Generate_Grounds.transform);
         grounds.Add(obj);
     }
 
@@ -52,6 +54,7 @@ public class Grounds_Pool : MonoBehaviour
             {
                 GameObject new_platform = Instantiate(prefabs[j]);
                 new_platform.SetActive(false);
+                new_platform.transform.SetParent(Generate_Grounds.transform);
                 grounds.Add(new_platform);
             }
         }
@@ -64,7 +67,6 @@ public class Grounds_Pool : MonoBehaviour
             if(grounds[i].activeInHierarchy == false)
             {
                 int x = Random.Range(0, prefabs.Count);
-                Debug.Log(x);
                 if(prefabs[x].CompareTag(grounds[i].tag))
                 return grounds[i];
             }
@@ -72,6 +74,7 @@ public class Grounds_Pool : MonoBehaviour
         
         GameObject new_platform = Instantiate(prefabs[Random.Range(0,prefabs.Count)]);
         new_platform.SetActive(false);
+        new_platform.transform.SetParent(Generate_Grounds.transform);
         grounds.Add(new_platform);
         return new_platform;
     }

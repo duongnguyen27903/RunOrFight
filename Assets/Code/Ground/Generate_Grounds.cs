@@ -17,7 +17,7 @@ public class Generate_Grounds : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.blue;
-        Gizmos.DrawIcon(GenerateDistance, "EndPosition");
+        Gizmos.DrawWireSphere(GenerateDistance, 0.5f);
     }
 
     void Update()
@@ -29,18 +29,6 @@ public class Generate_Grounds : MonoBehaviour
             ground.transform.position = Generate_Ground_Position.transform.position;
             GenerateDistance = ground.transform.Find("RightTop").position;
             ground.SetActive(true);
-        }
-    }
-
-    private IEnumerator AutoGenerate()
-    {
-        while (true)
-        {
-            
-            GameObject obj = Grounds_Pool.instance.Get_new_ground();
-            obj.transform.position = Generate_Ground_Position.transform.position;
-            obj.SetActive(true);
-            yield return null;
         }
     }
 }

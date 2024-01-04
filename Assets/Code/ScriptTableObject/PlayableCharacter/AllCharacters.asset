@@ -14,13 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characters:
   - sprite: {fileID: 1911147013, guid: 7e96352ac543c5b468746e134bbef1b3, type: 3}
-    character_name: Sanji
+    character_name: Sanjiro
   - sprite: {fileID: 841458185, guid: c1745ee2a61da5249b5330e8ced47592, type: 3}
     character_name: Fiora
   - sprite: {fileID: 1723087215, guid: b0db38bd0f7d09a45a674d740568770d, type: 3}
     character_name: Violet
   - sprite: {fileID: -1767066928, guid: b6313be8180126444b467c7c271fea9b, type: 3}
-    character_name: Yorn
+    character_name: Laris
   - sprite: {fileID: 24573609, guid: 6464a0e76e3e50749ba0aadb480931f5, type: 3}
     character_name: Ayaya
   - sprite: {fileID: -485898628, guid: 5c8b5ba577c144a4b8eb54ae1aeed4f0, type: 3}

@@ -57,7 +57,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private int JumpCount;
     private void OnJump(UnityEngine.InputSystem.InputAction.CallbackContext context)
     {
-        if( context.performed && (IsGrounded() || JumpCount<1))
+        if( context.performed && (IsGrounded() || JumpCount<4))
         {
             rb.AddForce(new Vector2(rb.velocity.x, JumpForce), ForceMode2D.Impulse);
             JumpCount++;
@@ -72,19 +72,18 @@ public class PlayerController : MonoBehaviour
     {
         return Physics2D.OverlapCircle(positionCheck.position, 0.2f, groundCheck);
     }
-
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(positionCheck.position, 0.2f);
     }
 
-    
-
     //khai bao thuoc tinh cua nhan vat
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private float MoveSpeed;
     [SerializeField] private float JumpForce;
+
+    [SerializeField] private float Score;
 
     private AnimatorController animatorController;
     void Start()
@@ -92,17 +91,19 @@ public class PlayerController : MonoBehaviour
         animatorController = FindObjectOfType<AnimatorController>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if (transform.position.y < -20) Time.timeScale = 0;
+
+        if (transform.position.y < -20)
+        {
+            Time.timeScale = 0;
+            return;
+        }
+
         if (IsGrounded()) JumpCount = 0;
         rb.velocity = new Vector2( MoveSpeed * horizontal, rb.velocity.y);
         animatorController.PlayRunAnimation();
     }
 
-    public Vector3 GetPlayerPosition()
-    {
-        return gameObject.transform.position;
-    }
+
 }

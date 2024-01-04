@@ -1,11 +1,31 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Ground : MonoBehaviour
 {
-    [SerializeField] private float moveSpeed;
+    [SerializeField] private float moveSpeed=0;
+    [SerializeField] private int current_level=0;
+
+    private void Awake()
+    {
+        current_level = 0;
+        moveSpeed = 3;
+    }
+
+    private void OnEnable()
+    {
+        int update_level = GameManager.instance.Get_current_level();
+        if( current_level != update_level)
+        {
+            current_level = update_level;
+            moveSpeed = GameManager.instance.Get_ground_movespeed(current_level);
+        }
+        Debug.Log($"current level : {current_level}, movespeed : {moveSpeed} ");
+    }
+
     private Transform resetPosition;
     private void Start()
     {
