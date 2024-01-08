@@ -13,6 +13,6 @@ public class SplashScript : MonoBehaviour
     private IEnumerator LoadMenuSence()
     {
         yield return new WaitForSeconds(3f);
-        SceneManager.LoadScene("MenuSence");
+        SceneManager.LoadScene("MenuScene");
     }
 }

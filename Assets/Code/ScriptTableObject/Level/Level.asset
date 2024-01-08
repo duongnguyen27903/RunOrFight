@@ -15,9 +15,13 @@ MonoBehaviour:
   level:
   - Checkpoint: 0
     MoveSpeed: 3
+    MAX_DISTANCE: 3
   - Checkpoint: 1000
     MoveSpeed: 5
+    MAX_DISTANCE: 5
   - Checkpoint: 3000
     MoveSpeed: 10
+    MAX_DISTANCE: 10
   - Checkpoint: 5000
     MoveSpeed: 15
+    MAX_DISTANCE: 15

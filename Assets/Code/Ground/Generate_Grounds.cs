@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,6 +9,20 @@ public class Generate_Grounds : MonoBehaviour
     [SerializeField] private Transform Generate_Ground_Position;
     [SerializeField] private Vector3 GenerateDistance;
     private GameObject ground;
+
+    private void OnEnable()
+    {
+        GameManager.instance.onLevelChange += OnLevelChange;
+        
+    }
+    private void OnDisable()
+    {
+        GameManager.instance.onLevelChange -= OnLevelChange;
+    }
+    private void OnLevelChange(Level level)
+    {
+        DISTANCE_TO_GENERATE = level.MAX_DISTANCE;
+    }
     void Start()
     {
         ground = GameObject.Find("LongGround");

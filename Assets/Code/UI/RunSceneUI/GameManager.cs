@@ -22,7 +22,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private LevelScriptable levels;
     private int score;
     private int current_level;
-    
+
+    public Action<Level> onLevelChange;
     private void Awake()
     {
         if (Instance == null)
@@ -38,6 +39,7 @@ public class GameManager : MonoBehaviour
     {
         score = 0;
         current_level = 0;
+        onLevelChange(levels.GetLevel(current_level));
         Score.text = $"Score : { score }";
     }
     private void Update()
@@ -48,6 +50,7 @@ public class GameManager : MonoBehaviour
             if(levels.GetLevel(i).Checkpoint == score)
             {
                 current_level++;
+                onLevelChange(levels.GetLevel(current_level));
                 Debug.Log($"level : {current_level}");
             }
         }
@@ -63,7 +66,6 @@ public class GameManager : MonoBehaviour
     {
         return current_level;
     }
-
 
     public void UpdateScore()
     {

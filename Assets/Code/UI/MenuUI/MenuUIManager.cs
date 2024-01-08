@@ -7,9 +7,8 @@ public class MenuUIManager : MonoBehaviour
 {
     public void PlayButtonPressed()
     {
-        SceneManager.LoadScene("PlayScene");
+        SceneManager.LoadScene("RunScene");
     }
-
     public void SelectCharacterButtonPress()
     {
         SceneManager.LoadScene("SelectCharacter");
