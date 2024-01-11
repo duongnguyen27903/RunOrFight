@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Generate_Grounds : MonoBehaviour
@@ -15,11 +12,11 @@ public class Generate_Grounds : MonoBehaviour
         GameManager.instance.onLevelChange += OnLevelChange;
         
     }
-    private void OnDisable()
-    {
-        GameManager.instance.onLevelChange -= OnLevelChange;
-    }
-    private void OnLevelChange(Level level)
+    //private void OnDisable()
+    //{
+    //    GameManager.instance.onLevelChange -= OnLevelChange;
+    //}
+    private void OnLevelChange(Level level, int current_level)
     {
         DISTANCE_TO_GENERATE = level.MAX_DISTANCE;
     }
@@ -41,7 +38,8 @@ public class Generate_Grounds : MonoBehaviour
         if( Generate_Ground_Position.position.x - GenerateDistance.x > DISTANCE_TO_GENERATE)
         {
             ground = Grounds_Pool.instance.Get_new_ground();
-            ground.transform.position = Generate_Ground_Position.transform.position;
+            //ground.transform.position = Generate_Ground_Position.transform.position;
+            ground.transform.position = new Vector3(Generate_Ground_Position.transform.position.x,Random.Range(-5f,1.5f));
             GenerateDistance = ground.transform.Find("RightTop").position;
             ground.SetActive(true);
         }
