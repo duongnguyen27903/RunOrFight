@@ -9,7 +9,7 @@ EditorBuildSettings:
     path: Assets/Scenes/SplashScreen.unity
     guid: 721eb86a142e3164d9c519461b53b0f1
   - enabled: 1
-    path: Assets/Scenes/MenuScene.unity
+    path: Assets/Scenes/Menu.unity
     guid: 3cb7b794670746749a0b5128ff8e7c21
   - enabled: 1
     path: Assets/Scenes/RunScene.unity
@@ -17,4 +17,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SelectCharacter.unity
     guid: ebfca34ebee2223469a4899441fcbbf7
+  - enabled: 1
+    path: Assets/Scenes/Store.unity
+    guid: b28017f148676fd4c96d979fac3b5ed4
+  - enabled: 1
+    path: Assets/Scenes/FightScene.unity
+    guid: f9492fb646d445146a7ed6de2ab4039b
   m_configObjects: {}

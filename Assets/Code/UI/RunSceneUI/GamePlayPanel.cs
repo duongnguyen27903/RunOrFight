@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GamePlayPanel : MonoBehaviour
 {
@@ -16,13 +17,12 @@ public class GamePlayPanel : MonoBehaviour
         Ice.SetActive(true);
         Fire.SetActive(false);
     }
-    void Start()
+    public void FightScene()
     {
-        
+        SceneManager.LoadScene("FightScene");
     }
-
-    void Update()
+    public void Pause_Press()
     {
-        
+        GameManager.instance.SetGameState(GameManager.GameState.Pause);
     }
 }

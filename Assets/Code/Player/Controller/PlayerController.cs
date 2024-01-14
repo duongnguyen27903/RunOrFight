@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -21,7 +22,7 @@ public class PlayerController : MonoBehaviour
             Input.Player_Run.Movement.started += OnMovement;
             Input.Player_Run.Movement.performed += OnMovement;
             Input.Player_Run.Movement.canceled += OnMovement;
-            Input.Enable();
+            Input.Player_Run.Enable();
         }
     }
     private void OnDisable()
@@ -51,13 +52,12 @@ public class PlayerController : MonoBehaviour
             {
                 animatorController.PlayIdle2Animation();
             }
-
         }
     }
     [SerializeField] private int JumpCount;
     private void OnJump(UnityEngine.InputSystem.InputAction.CallbackContext context)
     {
-        if( context.performed && (IsGrounded() || JumpCount<4))
+        if( context.performed && (IsGrounded() || JumpCount<10))
         {
             rb.AddForce(new Vector2(rb.velocity.x, JumpForce), ForceMode2D.Impulse);
             JumpCount++;
@@ -82,28 +82,24 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private float MoveSpeed;
     [SerializeField] private float JumpForce;
-
-    [SerializeField] private float Score;
-
+    //goi class dieu khien animation
     private AnimatorController animatorController;
     void Start()
     {
         animatorController = FindObjectOfType<AnimatorController>();
     }
-
     void Update()
     {
-
-        if (transform.position.y < -20)
+        if (transform.position.y < -15)
         {
-            Time.timeScale = 0;
+            GameManager.instance.SetGameState(GameManager.GameState.GameOver);
             return;
         }
-
         if (IsGrounded()) JumpCount = 0;
-        rb.velocity = new Vector2( MoveSpeed * horizontal, rb.velocity.y);
+        if( transform.position.x < -2)
+        {
+            rb.velocity = new Vector2( 0.1f, rb.velocity.y);
+        }
         animatorController.PlayRunAnimation();
     }
-
-
 }

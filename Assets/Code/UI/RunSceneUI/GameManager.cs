@@ -31,6 +31,29 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+    public enum GameState
+    {
+        Play,
+        Pause,
+        GameOver
+    }
+    [SerializeField] private GameObject PlayPanel;
+    [SerializeField] private GameObject PausePanel;
+    [SerializeField] private GameObject GameOverPanel;
+    private GameState game_state;
+    public void SetGameState( GameState state )
+    {
+        game_state = state;
+        PlayPanel.SetActive( game_state == GameState.Play );
+        PausePanel.SetActive( game_state == GameState.Pause );
+        GameOverPanel.SetActive( game_state == GameState.GameOver );
+        if (game_state == GameState.Pause || game_state == GameState.GameOver )
+        {
+            Time.timeScale = 0;
+        }
+        else Time.timeScale = 1f;
+    }
     
     //he thong score va checkpoint
     [SerializeField] private TextMeshProUGUI Score;
@@ -46,6 +69,10 @@ public class GameManager : MonoBehaviour
     public int Get_current_level()
     {
         return current_level;
+    }
+    public int Get_score()
+    {
+        return score;
     }
     public void UpdateScore()
     {
@@ -63,7 +90,6 @@ public class GameManager : MonoBehaviour
             {
                 current_level++;
                 onLevelChange(levels.GetLevel(current_level),current_level);
-                Debug.Log($"level : {current_level}");
             }
         }
     }
@@ -73,6 +99,7 @@ public class GameManager : MonoBehaviour
         current_level = 0;
         onLevelChange(levels.GetLevel(current_level), current_level);
         Score.text = $"Score : {score}";
+        SetGameState(GameState.Play);
     }
     void Start()
     {

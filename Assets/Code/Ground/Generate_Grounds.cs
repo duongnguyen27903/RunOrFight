@@ -39,7 +39,7 @@ public class Generate_Grounds : MonoBehaviour
         {
             ground = Grounds_Pool.instance.Get_new_ground();
             //ground.transform.position = Generate_Ground_Position.transform.position;
-            ground.transform.position = new Vector3(Generate_Ground_Position.transform.position.x,Random.Range(-5f,1.5f));
+            ground.transform.position = new Vector3(Generate_Ground_Position.transform.position.x,Random.Range(-5f,1f));
             GenerateDistance = ground.transform.Find("RightTop").position;
             ground.SetActive(true);
         }
