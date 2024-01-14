@@ -98,7 +98,7 @@ public class PlayerController : MonoBehaviour
         if (IsGrounded()) JumpCount = 0;
         if( transform.position.x < -2)
         {
-            rb.velocity = new Vector2( 0.1f, rb.velocity.y);
+            rb.velocity = new Vector2( 0.5f, rb.velocity.y);
         }
         animatorController.PlayRunAnimation();
     }

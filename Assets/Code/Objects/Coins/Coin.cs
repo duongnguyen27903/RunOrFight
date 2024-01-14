@@ -10,5 +10,9 @@ public class Coin : MonoBehaviour
         {
             gameObject.SetActive(false);
         }
+        if (collision.gameObject.CompareTag("LeftSideCollider"))
+        {
+            gameObject.SetActive(false);
+        }
     }
 }

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7506981433962068016}
   - component: {fileID: 4826863642644598711}
   - component: {fileID: 2782616664802568326}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: GoldCoin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 4400324504695249934}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 10.94, y: 1.08, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.1, y: 0.1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

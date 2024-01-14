@@ -48,9 +48,9 @@ public class Grounds_Pool : MonoBehaviour
 
     private void Start()
     {
-        for( int i=0 ; i<2; i++ )
+        for (int i = 0; i < 3; i++)
         {
-            for( int j=0; j< prefabs.Count; j++ )
+            for (int j = 0; j < prefabs.Count; j++)
             {
                 GameObject new_platform = Instantiate(prefabs[j]);
                 new_platform.SetActive(false);

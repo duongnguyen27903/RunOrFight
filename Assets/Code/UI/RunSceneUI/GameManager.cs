@@ -32,6 +32,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    //quan ly game state
     public enum GameState
     {
         Play,
@@ -74,6 +75,14 @@ public class GameManager : MonoBehaviour
     {
         return score;
     }
+    private void Init()
+    {
+        score = 0;
+        current_level = 0;
+        onLevelChange(levels.GetLevel(current_level), current_level);
+        Score.text = $"Score : {score}";
+        SetGameState(GameState.Play);
+    }
     public void UpdateScore()
     {
         if( Time.timeScale != 0)
@@ -93,17 +102,9 @@ public class GameManager : MonoBehaviour
             }
         }
     }
-    private void InitAtStart()
-    {
-        score = 0;
-        current_level = 0;
-        onLevelChange(levels.GetLevel(current_level), current_level);
-        Score.text = $"Score : {score}";
-        SetGameState(GameState.Play);
-    }
     void Start()
     {
-        InitAtStart();
+        Init();
     }
     private void Update()
     {

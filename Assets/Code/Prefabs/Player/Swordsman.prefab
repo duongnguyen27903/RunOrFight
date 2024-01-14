@@ -205,8 +205,7 @@ MonoBehaviour:
     m_Bits: 128
   rb: {fileID: 3266327636155323970}
   MoveSpeed: 10
-  JumpForce: 30
-  Score: 0
+  JumpForce: 25
 --- !u!114 &1779095645735963484
 MonoBehaviour:
   m_ObjectHideFlags: 0

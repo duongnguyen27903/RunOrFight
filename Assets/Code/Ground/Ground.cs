@@ -1,4 +1,3 @@
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class Ground : MonoBehaviour
@@ -10,9 +9,6 @@ public class Ground : MonoBehaviour
     private float width;
     private void OnEnable()
     {
-        collider2d = gameObject.GetComponent<Collider2D>();
-        width = collider2d.bounds.size.x;
-        print(width);
         int update_level = GameManager.instance.Get_current_level();
         if (current_level != update_level)
         {
@@ -20,28 +16,39 @@ public class Ground : MonoBehaviour
             moveSpeed = GameManager.instance.Get_ground_movespeed(current_level);
         }
         //Debug.Log($"current level : {current_level}, movespeed : {moveSpeed} ");
+        
         GameManager.instance.onLevelChange += OnLevelChange;
         IsPlayerCollision = false;
-        int x = Random.Range(3, 6);
-        Vector3 CoinPosition = transform.position + new Vector3(Random.Range(0, width - x), Random.Range(1f, 3f));
-        for ( int i = 0; i < x; i++ )
-        {
-            GameObject coin = CoinPool.instance.GetNewObjects();
-            coin.transform.SetParent(transform, false);
-            coin.transform.position = CoinPosition + new Vector3(i*0.5f,0);
-            coin.SetActive(true);
-        }
-        GameObject obstacle = ObstaclePool.instance.GetNewObjects();
-        obstacle.transform.SetParent(transform, false);
-        obstacle.transform.position = transform.position + new Vector3(Random.Range(0,width),1);
-        obstacle.SetActive(true);
-    }
 
+        Generate_Coins();
+        Generate_Obstacles();
+    }
     private void OnDisable()
     {
         IsPlayerCollision = false;
+        current_level = 0;
+        moveSpeed = 0;
     }
 
+    private void Generate_Coins()
+    {
+        int x = Random.Range(3, 6);
+        Vector3 CoinPosition = new Vector3(Random.Range(0, width - x), Random.Range(1f, 3f));
+        for (int i = 0; i < x; i++)
+        {
+            GameObject coin = CoinPool.instance.GetNewObjects();
+            coin.transform.SetParent(transform, false);
+            coin.transform.position = transform.position + CoinPosition + new Vector3(i * 0.5f , 0);
+            coin.SetActive(true);
+        }
+    }
+    private void Generate_Obstacles()
+    {
+        GameObject obstacle = ObstaclePool.instance.GetNewObjects();
+        obstacle.transform.SetParent(transform, false);
+        obstacle.transform.position = transform.position + new Vector3(Random.Range(0, width), 1);
+        obstacle.SetActive(true);
+    }
     private void OnLevelChange(Level level, int currentLevel)
     {
         current_level = currentLevel;
@@ -50,10 +57,13 @@ public class Ground : MonoBehaviour
     }
 
     private Transform resetPosition;
-    private void Start()
+    private void Awake()
     {
         resetPosition = GameObject.Find("ResetPosition").transform;
+        collider2d = gameObject.GetComponent<Collider2D>();
+        width = collider2d.bounds.size.x;
     }
+    //kiem tra xem player da cham lan dau chua
     private bool IsPlayerCollision;
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -61,7 +71,7 @@ public class Ground : MonoBehaviour
         if( collision.gameObject.CompareTag("Player") )
         {
             IsPlayerCollision = true;
-            Height = Random.Range(-5f, 1f);
+            Height = Random.Range(-5f, 0.5f);
         }
     }
     void Update()

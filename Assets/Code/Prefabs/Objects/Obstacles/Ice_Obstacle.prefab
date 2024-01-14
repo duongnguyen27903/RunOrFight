@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4397436191382698317}
   - component: {fileID: 3134921973369500025}
   - component: {fileID: 3015437229120063646}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Ice_Obstacle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 8057029757645169412}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 19.128, y: 1.356, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
