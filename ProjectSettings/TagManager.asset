@@ -8,6 +8,9 @@ TagManager:
   - NormalGround
   - ShortGround
   - LeftSideCollider
+  - PlayerRadar
+  - IceObstacle
+  - FireObstacle
   layers:
   - Default
   - TransparentFX

@@ -15,12 +15,9 @@ EditorBuildSettings:
     path: Assets/Scenes/RunScene.unity
     guid: 3d8f3a342f3bc3f4ebd58861d30093f9
   - enabled: 1
-    path: Assets/Scenes/SelectCharacter.unity
-    guid: ebfca34ebee2223469a4899441fcbbf7
-  - enabled: 1
     path: Assets/Scenes/Store.unity
     guid: b28017f148676fd4c96d979fac3b5ed4
   - enabled: 1
-    path: Assets/Scenes/FightScene.unity
-    guid: f9492fb646d445146a7ed6de2ab4039b
+    path: Assets/Scenes/Setting.unity
+    guid: da0e0d9280d002e48bb10c959e667c47
   m_configObjects: {}
