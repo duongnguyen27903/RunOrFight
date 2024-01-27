@@ -57,7 +57,7 @@ public class HeroCard : MonoBehaviour
     public void PurchaseHero()
     {
         int amount = StoreManager.instance.GetCoins();
-        if ( price < amount )
+        if ( price <= amount )
         {
             statement.text = "Select";
             statement_button.sprite = not_select;

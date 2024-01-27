@@ -12,6 +12,7 @@ public class Heroes
 
 public class HeroesContainer : MonoBehaviour
 {
+    //sau can chinh sua them, tach thuoc tinh owned va selected ra khoi hero_database
     [SerializeField] private HeroDatabase hero_database;
     [SerializeField] private HeroCard hero_card_prefab;
     [SerializeField] private List<HeroCard> hero_cards;
@@ -34,9 +35,9 @@ public class HeroesContainer : MonoBehaviour
             for (int i = 0; i < hero_database.Count; i++)
             {
                 HeroCard hero = Instantiate(hero_card_prefab, transform.position + new Vector3(140, 0) + new Vector3(i * 280, 0), Quaternion.identity, transform);
-                hero.Init(hero_database.GetHero(i), i);
+                hero.Init(hero_database.characters[i], i);
                 hero_cards.Add(hero);
-                hero_lists.heroes.Add(hero_database.GetHero(i));
+                hero_lists.heroes.Add(hero_database.characters[i]);
             }
             string hero_list_temp = JsonUtility.ToJson(hero_lists);
             PlayerPrefs.SetString("heroes", hero_list_temp);

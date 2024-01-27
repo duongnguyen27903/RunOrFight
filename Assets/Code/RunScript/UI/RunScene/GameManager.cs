@@ -77,10 +77,12 @@ public class GameManager : MonoBehaviour
     }
     private void Init()
     {
-        score = 0;
         current_level = 0;
-        onLevelChange(levels.GetLevel(current_level), current_level);
+        score = 0;
         Score.text = $"Score : {score}";
+        coins_collected = 0;
+        Coins_Collected.text = $"{coins_collected}";
+        onLevelChange(levels.GetLevel(current_level), current_level);
         SetGameState(GameState.Play);
     }
     public void UpdateScore()
@@ -102,6 +104,20 @@ public class GameManager : MonoBehaviour
             }
         }
     }
+
+    //quan ly so coin thu thap duoc trong moi lan choi
+    [SerializeField] private int coins_collected;
+    [SerializeField] private TextMeshProUGUI Coins_Collected;
+    public void Update_Coins_Collected( int coin )
+    {
+        coins_collected += coin;
+        Coins_Collected.text = $"{coins_collected}";
+    }
+    public int Get_Coins_Collected()
+    {
+        return coins_collected;
+    }
+
     void Start()
     {
         Init();
