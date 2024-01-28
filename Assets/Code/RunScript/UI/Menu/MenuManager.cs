@@ -5,6 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class MenuManager : MonoBehaviour
 {
+    private Achivement achivement;
+    private void Start()
+    {
+        achivement = FindObjectOfType<Achivement>();
+    }
     public void Play_Pressed()
     {
         SceneManager.LoadScene("RunScene");
@@ -13,9 +18,9 @@ public class MenuManager : MonoBehaviour
     {
         SceneManager.LoadScene("Store");
     }
-    public void LeaderBoard_Pressed()
+    public void Achivement_Pressed()
     {
-
+        achivement.Appear();
     }
     public void AboutUs_Presses()
     {
