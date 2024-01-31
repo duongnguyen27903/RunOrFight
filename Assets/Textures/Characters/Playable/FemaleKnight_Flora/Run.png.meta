@@ -106,6 +106,32 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -137,7 +163,7 @@ TextureImporter:
         x: 169
         y: 0
         width: 46
-        height: 64
+        height: 65
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -152,34 +178,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Run_2
+      name: Run_3
       rect:
         serializedVersion: 2
         x: 297
         y: 0
-        width: 71
-        height: 65
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a2a56e85eb91b2847999393f24570dd1
-      internalID: -939321859
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Run_3
-      rect:
-        serializedVersion: 2
-        x: 425
-        y: 0
         width: 46
-        height: 66
+        height: 65
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -197,7 +202,7 @@ TextureImporter:
       name: Run_4
       rect:
         serializedVersion: 2
-        x: 553
+        x: 425
         y: 0
         width: 46
         height: 65
@@ -218,10 +223,10 @@ TextureImporter:
       name: Run_5
       rect:
         serializedVersion: 2
-        x: 681
+        x: 553
         y: 0
-        width: 71
-        height: 66
+        width: 46
+        height: 65
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -239,10 +244,10 @@ TextureImporter:
       name: Run_6
       rect:
         serializedVersion: 2
-        x: 809
+        x: 681
         y: 0
-        width: 71
-        height: 67
+        width: 46
+        height: 65
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -252,6 +257,27 @@ TextureImporter:
       bones: []
       spriteID: 5eadca3f5f343b04d9b852150e69b80d
       internalID: -12278299
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Run_8
+      rect:
+        serializedVersion: 2
+        x: 809
+        y: 0
+        width: 46
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a5bc69857c95de84cbc4d9d13422cea5
+      internalID: -1280379574
       vertices: []
       indices: 
       edges: []
@@ -274,6 +300,8 @@ TextureImporter:
       Run_4: 1358275234
       Run_5: 554190591
       Run_6: -12278299
+      Run_7: 696908816
+      Run_8: -1280379574
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

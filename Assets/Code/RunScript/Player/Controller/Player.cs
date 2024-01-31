@@ -4,8 +4,8 @@ public class Player : MonoBehaviour
 {
     //khai bao animator cho nhan vat
     [SerializeField] protected Animator animator;
-    protected int ChangeHash;
-    protected int StateHash;
+    [SerializeField] protected int ChangeHash;
+    [SerializeField] protected int StateHash;
 
     //cac ham chay animation cua nhan vat
     [ContextMenu("PlayIdle1Animation")]
