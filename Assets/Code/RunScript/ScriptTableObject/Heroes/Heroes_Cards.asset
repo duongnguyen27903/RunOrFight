@@ -10,35 +10,41 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b9859bf48dd65124990a2da83ba7da12, type: 3}
-  m_Name: Heroes
+  m_Name: Heroes_Cards
   m_EditorClassIdentifier: 
   characters:
-  - sprite: {fileID: 1911147013, guid: 7e96352ac543c5b468746e134bbef1b3, type: 3}
+  - id: 0
+    sprite: {fileID: 1911147013, guid: 7e96352ac543c5b468746e134bbef1b3, type: 3}
     name: Merlin
     price: 0
     owned: 1
     selected: 1
-  - sprite: {fileID: -1767066928, guid: b6313be8180126444b467c7c271fea9b, type: 3}
+  - id: 1
+    sprite: {fileID: -1767066928, guid: b6313be8180126444b467c7c271fea9b, type: 3}
     name: Thorne
     price: 5000
     owned: 0
     selected: 0
-  - sprite: {fileID: 24573609, guid: 6464a0e76e3e50749ba0aadb480931f5, type: 3}
+  - id: 2
+    sprite: {fileID: 24573609, guid: 6464a0e76e3e50749ba0aadb480931f5, type: 3}
     name: Morgana
     price: 10000
     owned: 0
     selected: 0
-  - sprite: {fileID: 841458185, guid: c1745ee2a61da5249b5330e8ced47592, type: 3}
+  - id: 3
+    sprite: {fileID: 841458185, guid: c1745ee2a61da5249b5330e8ced47592, type: 3}
     name: Flora
     price: 20000
     owned: 0
     selected: 0
-  - sprite: {fileID: 1723087215, guid: b0db38bd0f7d09a45a674d740568770d, type: 3}
+  - id: 4
+    sprite: {fileID: 1723087215, guid: b0db38bd0f7d09a45a674d740568770d, type: 3}
     name: Scarlett
     price: 50000
     owned: 0
     selected: 0
-  - sprite: {fileID: -948505447, guid: 78b0ea39143f82c4fb88390f7712768c, type: 3}
+  - id: 5
+    sprite: {fileID: -948505447, guid: 78b0ea39143f82c4fb88390f7712768c, type: 3}
     name: Sasuke
     price: 100000
     owned: 0

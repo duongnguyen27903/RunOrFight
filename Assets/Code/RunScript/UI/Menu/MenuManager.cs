@@ -6,9 +6,13 @@ using UnityEngine.SceneManagement;
 public class MenuManager : MonoBehaviour
 {
     private Achivement achivement;
+    private AboutUs aboutUs;
+    private Setting setting;
     private void Start()
     {
         achivement = FindObjectOfType<Achivement>();
+        aboutUs = FindObjectOfType<AboutUs>();
+        setting = FindObjectOfType<Setting>();
     }
     public void Play_Pressed()
     {
@@ -24,10 +28,10 @@ public class MenuManager : MonoBehaviour
     }
     public void AboutUs_Presses()
     {
-
+        aboutUs.Appear();
     }
     public void Setting_Pressed()
     {
-
+        setting.Appear();
     }
 }
