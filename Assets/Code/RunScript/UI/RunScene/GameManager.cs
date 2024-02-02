@@ -8,25 +8,25 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     //khai bao mot singleton class
-    private static GameManager Instance;
-    public static GameManager instance
+    private static GameManager instance;
+    public static GameManager Instance
     {
         get
         {
-            if (Instance == null)
+            if (instance == null)
             {
-                Instance = FindObjectOfType<GameManager>();
+                instance = FindObjectOfType<GameManager>();
             }
-            return Instance;
+            return instance;
         }
     }
     private void Awake()
     {
-        if (Instance == null)
+        if (instance == null)
         {
-            Instance = this;
+            instance = this;
         }
-        else if (Instance != this)
+        else if (instance != this)
         {
             Destroy(gameObject);
         }

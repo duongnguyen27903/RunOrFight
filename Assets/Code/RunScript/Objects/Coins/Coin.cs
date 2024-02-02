@@ -9,7 +9,7 @@ public class Coin : MonoBehaviour
         if( collision.gameObject.CompareTag("Player") ) 
         {
             gameObject.SetActive(false);
-            GameManager.instance.Update_Coins_Collected(1);
+            GameManager.Instance.Update_Coins_Collected(1);
         }
         if (collision.gameObject.CompareTag("LeftSideCollider"))
         {

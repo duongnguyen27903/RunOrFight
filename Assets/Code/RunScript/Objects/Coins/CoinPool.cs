@@ -4,25 +4,25 @@ using UnityEngine;
 
 public class CoinPool : ObjectPool
 {
-    private static CoinPool Instance;
-    public static CoinPool instance
+    private static CoinPool instance;
+    public static CoinPool Instance
     {
         get
         {
-            if (Instance == null)
+            if (instance == null)
             {
-                Instance = FindObjectOfType<CoinPool>();
+                instance = FindObjectOfType<CoinPool>();
             }
-            return Instance;
+            return instance;
         }
     }
     private void Awake()
     {
-        if (Instance == null)
+        if (instance == null)
         {
-            Instance = this;
+            instance = this;
         }
-        else if (Instance != this)
+        else if (instance != this)
         {
             Destroy(gameObject);
         }

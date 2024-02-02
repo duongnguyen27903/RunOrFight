@@ -5,14 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class SplashScript : MonoBehaviour
 {
-    
     private void Awake()
     {
         StartCoroutine(LoadMenuSence());
     }
     private IEnumerator LoadMenuSence()
     {
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(4f);
         SceneManager.LoadScene("Menu");
     }
 }

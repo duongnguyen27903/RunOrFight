@@ -1,9 +1,4 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.ComponentModel;
 using TMPro;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -13,25 +8,25 @@ public class StoreManager : MonoBehaviour
     //PlayerPrefs se tra ve mot string rong( "" ) neu GetString khong tim thay key
     //PlayerPrefs se tra ve 0 neu GetInt va GetFloat khong tim thay key
     //khai bao mot singleton class
-    private static StoreManager Instance;
-    public static StoreManager instance
+    private static StoreManager instance;
+    public static StoreManager Instance
     {
         get
         {
-            if (Instance == null)
+            if (instance == null)
             {
-                Instance = FindObjectOfType<StoreManager>();
+                instance = FindObjectOfType<StoreManager>();
             }
-            return Instance;
+            return instance;
         }
     }
     private void Awake()
     {
-        if (Instance == null)
+        if (instance == null)
         {
-            Instance = this;
+            instance = this;
         }
-        else if (Instance != this)
+        else if (instance != this)
         {
             Destroy(gameObject);
         }

@@ -4,33 +4,34 @@ using UnityEngine;
 
 public class Grounds_Pool : MonoBehaviour
 {
-    private static Grounds_Pool Instance;
-    public static Grounds_Pool instance
+    private static Grounds_Pool instance;
+    public static Grounds_Pool Instance
     {
         get
         {
-            if( Instance == null)
+            if( instance == null)
             {
-                Instance = FindObjectOfType<Grounds_Pool>();
+                instance = FindObjectOfType<Grounds_Pool>();
             }
-            return Instance;
+            return instance;
         }
     }
-    [SerializeField] private List<GameObject> prefabs;
-    private List<GameObject> grounds = new();
-    private GameObject Generate_Grounds;
     private void Awake()
     {
-        if( Instance == null)
+        if (instance == null)
         {
-            Instance = this;
+            instance = this;
         }
-        else if( Instance != this)
+        else if (instance != this)
         {
             Destroy(gameObject);
         }
-        Generate_Grounds = GameObject.Find("Generate_Grounds");
+        Spawn_GroundObjParent = GameObject.Find("Spawn_GroundObjParent");
     }
+    [SerializeField] private List<GameObject> prefabs;
+    private List<GameObject> grounds = new();
+    private GameObject Spawn_GroundObjParent;
+    
 
     public void Add_Grounds(GameObject obj)
     {
@@ -42,7 +43,7 @@ public class Grounds_Pool : MonoBehaviour
             }
         }
         obj.SetActive(false);
-        obj.transform.SetParent(Generate_Grounds.transform);
+        obj.transform.SetParent(Spawn_GroundObjParent.transform);
         grounds.Add(obj);
     }
 
@@ -54,27 +55,24 @@ public class Grounds_Pool : MonoBehaviour
             {
                 GameObject new_platform = Instantiate(prefabs[j]);
                 new_platform.SetActive(false);
-                new_platform.transform.SetParent(Generate_Grounds.transform);
+                new_platform.transform.SetParent(Spawn_GroundObjParent.transform);
                 grounds.Add(new_platform);
             }
         }
     }
 
-    public GameObject Get_new_ground()
+    public GameObject Get_new_ground(string tag)
     {
         for( int i = 0; i < grounds.Count; i++)
         {
-            if(grounds[i].activeInHierarchy == false)
+            if(grounds[i].activeInHierarchy == false && grounds[i].CompareTag(tag))
             {
-                int x = Random.Range(0, prefabs.Count);
-                if(prefabs[x].CompareTag(grounds[i].tag))
                 return grounds[i];
             }
         }
-        
-        GameObject new_platform = Instantiate(prefabs[Random.Range(0,prefabs.Count)]);
+        GameObject new_platform = Instantiate(prefabs.Find(obj => obj.CompareTag(tag)));
         new_platform.SetActive(false);
-        new_platform.transform.SetParent(Generate_Grounds.transform);
+        new_platform.transform.SetParent(Spawn_GroundObjParent.transform);
         grounds.Add(new_platform);
         return new_platform;
     }

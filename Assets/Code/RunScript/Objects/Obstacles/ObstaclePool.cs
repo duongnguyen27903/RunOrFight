@@ -4,25 +4,25 @@ using UnityEngine;
 
 public class ObstaclePool : ObjectPool
 {
-    private static ObstaclePool Instance;
-    public static ObstaclePool instance
+    private static ObstaclePool instance;
+    public static ObstaclePool Instance
     {
         get
         {
-            if (Instance == null)
+            if (instance == null)
             {
-                Instance = FindObjectOfType<ObstaclePool>();
+                instance = FindObjectOfType<ObstaclePool>();
             }
-            return Instance;
+            return instance;
         }
     }
     private void Awake()
     {
-        if (Instance == null)
+        if (instance == null)
         {
-            Instance = this;
+            instance = this;
         }
-        else if (Instance != this)
+        else if (instance != this)
         {
             Destroy(gameObject);
         }

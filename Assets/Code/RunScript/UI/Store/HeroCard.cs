@@ -7,6 +7,7 @@ using UnityEngine.UI;
 
 public class HeroCard : MonoBehaviour
 {
+    [SerializeField] private int id;
     [SerializeField] private Image hero_image;
     [SerializeField] private TextMeshProUGUI hero_name;
     [SerializeField] private int price;
@@ -27,6 +28,7 @@ public class HeroCard : MonoBehaviour
     }
     public void Init( Hero hero, int current)
     {
+        id = hero.id;
         current_hero = current;
         hero_image.sprite = hero.sprite;
         hero_name.text = hero.name;
@@ -56,13 +58,13 @@ public class HeroCard : MonoBehaviour
 
     public void PurchaseHero()
     {
-        int amount = StoreManager.instance.GetCoins();
+        int amount = StoreManager.Instance.GetCoins();
         if ( price <= amount )
         {
             statement.text = "Select";
             statement_button.sprite = not_select;
             heroesContainer.UnlockHero(current_hero);
-            StoreManager.instance.UpdateCoins(amount - price);
+            StoreManager.Instance.UpdateCoins(amount - price);
         }
         else
         {
@@ -74,6 +76,7 @@ public class HeroCard : MonoBehaviour
         if( owned == true)
         {
             Iselected = true;
+            PlayerPrefs.SetInt("selected_hero", id);
             statement.text = "Selected";
             statement_button.sprite = selected;
             SelectButton.interactable = !Iselected;

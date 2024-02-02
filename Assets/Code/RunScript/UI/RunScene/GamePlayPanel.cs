@@ -25,7 +25,7 @@ public class GamePlayPanel : MonoBehaviour
     }
     public void Pause_Press()
     {
-        GameManager.instance.SetGameState(GameManager.GameState.Pause);
+        GameManager.Instance.SetGameState(GameManager.GameState.Pause);
     }
     
 }

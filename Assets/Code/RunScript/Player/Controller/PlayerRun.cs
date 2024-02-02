@@ -23,25 +23,56 @@ public class PlayerRun : Player
             JumpCount++;
         }
     }
+
     //cac ham kiem soat suc manh nhan vat
     public Action<Power> onChangePower;
     public void ActiveFire()
     {
         Set_Power(Power.fire);
-        //onChangePower(Power.fire);
+        onChangePower(Power.fire);
     }
     public void ActiveIce()
     {
         Set_Power(Power.ice);
-        //onChangePower(Power.ice);
+        onChangePower(Power.ice);
     }
     public Power Get_Player_Power()
     {
         return current_power;
     }
+
+    //cac ham xu ly va cham
+    private void OnParticleCollision(GameObject other)
+    {
+        if( current_power != Power.fire)
+        {
+            GameManager.Instance.SetGameState(GameManager.GameState.GameOver);
+            return;
+        }
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("LeftSideCollider"))
+        {
+            GameManager.Instance.SetGameState(GameManager.GameState.GameOver);
+            return;
+        }
+        if (  collision.gameObject.CompareTag("IceObstacle") ) 
+        {
+            if( current_power == Power.fire )
+            {
+                collision.gameObject.SetActive(false);
+                GameObject power_burst = PowerBurstPool.Instance.Get_New_FireBurst();
+                power_burst.transform.position = transform.position;
+                power_burst.SetActive(true);
+            }
+        }
+    }
+
     void Start()
     {
         Set_Power(Power.normal);
+        onChangePower(Power.normal);
         ChangeHash = Animator.StringToHash("Change");
         StateHash = Animator.StringToHash("State");
     }
@@ -49,7 +80,7 @@ public class PlayerRun : Player
     {
         if (transform.position.y < -10)
         {
-            GameManager.instance.SetGameState(GameManager.GameState.GameOver);
+            GameManager.Instance.SetGameState(GameManager.GameState.GameOver);
             return;
         }
         if (IsGrounded()) JumpCount = 0;

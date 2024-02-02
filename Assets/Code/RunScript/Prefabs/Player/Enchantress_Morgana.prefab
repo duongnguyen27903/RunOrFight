@@ -42,6 +42,7 @@ GameObject:
   - component: {fileID: 2227480228220224426}
   - component: {fileID: 3807772740003531014}
   - component: {fileID: 2532030670676839207}
+  - component: {fileID: 940105635106415699}
   m_Layer: 6
   m_Name: Rada
   m_TagString: PlayerRada
@@ -126,6 +127,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 0
+--- !u!114 &940105635106415699
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3852903838035591950}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6492e2dc32dc00d44bb646ec700138b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  power: 0
 --- !u!1 &5270846461059067327
 GameObject:
   m_ObjectHideFlags: 0

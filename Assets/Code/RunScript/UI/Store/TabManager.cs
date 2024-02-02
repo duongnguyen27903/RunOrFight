@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using static StoreManager;
 
 public class TabManager : MonoBehaviour
 {
@@ -11,13 +10,13 @@ public class TabManager : MonoBehaviour
 
     public void Shop_Pressed()
     {
-        StoreManager.instance.SetStoreTab(Tabs.Shop);
+        StoreManager.Instance.SetStoreTab(StoreManager.Tabs.Shop);
         shop_text.color = Color.gray;
         heroes_text.color = Color.yellow;
     }
     public void Heroes_Pressed()
     {
-        StoreManager.instance.SetStoreTab(Tabs.Heroes);
+        StoreManager.Instance.SetStoreTab(StoreManager.Tabs.Heroes);
         heroes_text.color = Color.gray;
         shop_text.color = Color.yellow;
     }

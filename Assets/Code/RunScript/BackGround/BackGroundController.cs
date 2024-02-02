@@ -50,17 +50,18 @@ public class BackGroundController : MonoBehaviour
         trees.SetTextureOffset(MainTexID, offset5);
     }
 
-    private void OnApplicationQuit()
+    private void Reset()
     {
-        offset1 = Vector2.zero;
-        sky_sun.SetTextureOffset(MainTexID, offset1);
-        offset2 = Vector2.zero;
-        houses3.SetTextureOffset(MainTexID, offset2);
-        offset3 = Vector2.zero;
-        houses2.SetTextureOffset(MainTexID, offset3);
-        offset4 = Vector2.zero;
-        housesfountain.SetTextureOffset(MainTexID, offset4);
-        offset5 = Vector2.zero;
-        trees.SetTextureOffset(MainTexID, offset5);
+        //offset1 = Vector2.zero;
+        //sky_sun.SetTextureOffset(MainTexID, offset1);
+        //offset2 = Vector2.zero;
+        //houses3.SetTextureOffset(MainTexID, offset2);
+        //offset3 = Vector2.zero;
+        //houses2.SetTextureOffset(MainTexID, offset3);
+        //offset4 = Vector2.zero;
+        //housesfountain.SetTextureOffset(MainTexID, offset4);
+        //offset5 = Vector2.zero;
+        //trees.SetTextureOffset(MainTexID, offset5);
+        print("reset");
     }
 }

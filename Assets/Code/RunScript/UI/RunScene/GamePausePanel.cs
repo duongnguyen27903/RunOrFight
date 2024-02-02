@@ -7,7 +7,7 @@ public class GamePausePanel : MonoBehaviour
 {
     public void Continue_Press()
     {
-        GameManager.instance.SetGameState(GameManager.GameState.Play);
+        GameManager.Instance.SetGameState(GameManager.GameState.Play);
     }
     public void Menu_Press()
     {

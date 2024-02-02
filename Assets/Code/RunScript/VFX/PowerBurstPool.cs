@@ -4,25 +4,25 @@ using UnityEngine;
 
 public class PowerBurstPool : MonoBehaviour
 {
-    private static PowerBurstPool Instance;
-    public static PowerBurstPool instance
+    private static PowerBurstPool instance;
+    public static PowerBurstPool Instance
     {
         get
         {
-            if (Instance == null)
+            if (instance == null)
             {
-                Instance = FindObjectOfType<PowerBurstPool>();
+                instance = FindObjectOfType<PowerBurstPool>();
             }
-            return Instance;
+            return instance;
         }
     }
     private void Awake()
     {
-        if (Instance == null)
+        if (instance == null)
         {
-            Instance = this;
+            instance = this;
         }
-        else if (Instance != this)
+        else if (instance != this)
         {
             Destroy(gameObject);
         }
