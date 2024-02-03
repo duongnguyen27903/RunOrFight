@@ -5,38 +5,38 @@ using UnityEngine;
 
 public class WindowUIBase : MonoBehaviour
 {
-    [Header("WindowUI")]
-    [SerializeField] protected bool show = false;
+    //[SerializeField] protected bool show = false;
     [SerializeField] protected Vector3 startPos;
-    [SerializeField] protected Vector3 endPos;
-    [SerializeField] protected float moveSpeed;
+    //[SerializeField] protected Vector3 endPos;
+    //[SerializeField] protected float moveSpeed;
 
-    private void FixedUpdate()
-    {
-        this.Showing();
-    }
-
+    //protected virtual void Update()
+    //{
+    //    Showing();
+    //}
+    
     protected virtual void SetStartPos()
     {
-        transform.localPosition = this.startPos;
+        transform.localPosition = startPos;
     }
 
     public virtual void Appear()
     {
-        this.SetStartPos();
-        this.show = true;
+        //SetStartPos();
+        //show = true;
+        transform.localPosition = startPos;
         transform.gameObject.SetActive(true);
     }
 
     public virtual void Hide()
     {
-        this.show = false;
+        //show = false;
         transform.gameObject.SetActive(false);
     }
 
-    private void Showing()
-    {
-        if (!this.show) return;
-        transform.localPosition = Vector3.Lerp(transform.localPosition, this.endPos, this.moveSpeed * Time.fixedDeltaTime);
-    }
+    //private void Showing()
+    //{
+    //    if ( show )
+    //    transform.localPosition = Vector3.Lerp(transform.localPosition, endPos, moveSpeed * Time.deltaTime);
+    //}
 }

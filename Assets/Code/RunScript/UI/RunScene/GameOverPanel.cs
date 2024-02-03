@@ -33,6 +33,6 @@ public class GameOverPanel : MonoBehaviour
     }
     public void Menu_Press()
     {
-        SceneManager.LoadScene("Menu");
+        SceneManager.LoadSceneAsync("Menu");
     }
 }

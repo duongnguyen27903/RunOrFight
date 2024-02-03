@@ -21,16 +21,16 @@ public class ObjectPool : MonoBehaviour
         }
     }
     
-    public virtual GameObject GetNewObjects()
+    public virtual GameObject GetNewObjects(string tag)
     {
         for (int i = 0; i < objects.Count; i++)
         {
-            if (objects[i].activeInHierarchy == false)
+            if (objects[i].activeInHierarchy == false && objects[i].CompareTag(tag))
             {
                 return objects[i];
             }
         }
-        GameObject new_platform = Instantiate(prefabs[UnityEngine.Random.Range(0, prefabs.Count)]);
+        GameObject new_platform = Instantiate(prefabs.Find(prefab => prefab.CompareTag(tag)));
         new_platform.SetActive(false);
         objects.Add(new_platform);
         return new_platform;

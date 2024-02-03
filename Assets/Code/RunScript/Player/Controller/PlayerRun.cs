@@ -52,7 +52,7 @@ public class PlayerRun : Player
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("LeftSideCollider"))
+        if (collision.gameObject.CompareTag("LeftSideCollider") || collision.gameObject.CompareTag("Chaser"))
         {
             GameManager.Instance.SetGameState(GameManager.GameState.GameOver);
             return;
@@ -75,6 +75,7 @@ public class PlayerRun : Player
         onChangePower(Power.normal);
         ChangeHash = Animator.StringToHash("Change");
         StateHash = Animator.StringToHash("State");
+        PlayRunAnimation();
     }
     void Update()
     {
@@ -84,10 +85,10 @@ public class PlayerRun : Player
             return;
         }
         if (IsGrounded()) JumpCount = 0;
-        if (transform.position.x < -2)
+        if (transform.position.x < -1)
         {
             rb.velocity = new Vector2(2f, rb.velocity.y);
         }
-        PlayRunAnimation();
+        
     }
 }

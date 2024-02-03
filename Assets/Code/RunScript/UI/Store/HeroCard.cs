@@ -11,8 +11,8 @@ public class HeroCard : MonoBehaviour
     [SerializeField] private Image hero_image;
     [SerializeField] private TextMeshProUGUI hero_name;
     [SerializeField] private int price;
-    [SerializeField] public bool owned;
-    [SerializeField] public bool Iselected;
+    public bool owned;
+    public bool Iselected;
     [SerializeField] private TextMeshProUGUI statement;
     [SerializeField] private Image statement_button;
     [SerializeField] private Button SelectButton;

@@ -10,7 +10,7 @@ public class Base : MonoBehaviour
         this.LoadComponents();
     }
 
-    public virtual void LoadComponents()
+    protected virtual void LoadComponents()
     {
         //for override
     }

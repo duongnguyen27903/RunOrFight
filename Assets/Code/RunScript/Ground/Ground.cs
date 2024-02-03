@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Ground : MonoBehaviour
@@ -8,6 +9,7 @@ public class Ground : MonoBehaviour
     private float Height;
     private Collider2D collider2d;
     private float width;
+    private readonly List<string> obstacle_tags = new() { "IceObstacle","FireObstacle"};
     private void OnEnable()
     {
         int update_level = GameManager.Instance.Get_current_level();
@@ -37,20 +39,18 @@ public class Ground : MonoBehaviour
         Vector3 CoinPosition = new(Random.Range(0, width - x), Random.Range(1f, 3f));
         for (int i = 0; i < x; i++)
         {
-            GameObject coin = CoinPool.Instance.GetNewObjects();
+            GameObject coin = CoinPool.Instance.GetNewObjects("Coin");
             coin.transform.SetParent(transform, false);
             coin.transform.position = transform.position + CoinPosition + new Vector3(i * 0.5f , 0);
             coin.SetActive(true);
         }
-        print("invoke coins");
     }
     private void Generate_Obstacles()
     {
-        GameObject obstacle = ObstaclePool.Instance.GetNewObjects();
+        GameObject obstacle = ObstaclePool.Instance.GetNewObjects(obstacle_tags[Random.Range(0,2)]);
         obstacle.transform.SetParent(transform, false);
         obstacle.transform.position = transform.position + new Vector3(Random.Range(0, width-1), 1);
         obstacle.SetActive(true);
-        print("invoke obstacles");
     }
     private void OnLevelChange(Level level, int currentLevel)
     {
@@ -74,7 +74,6 @@ public class Ground : MonoBehaviour
         {
             IsPlayerCollision = true;
             if(Random.Range(0, 2) == 1 && SpawnGround.Instance.AllowToSpawn == true) Height = Random.Range(-5f, 0.5f) ;
-            
         }
     }
     void Update()
@@ -82,7 +81,7 @@ public class Ground : MonoBehaviour
         gameObject.transform.position -= new Vector3( moveSpeed * Time.deltaTime,0);
         if( transform.position.y != Height)
         {
-            transform.position = Vector3.Lerp(transform.position,new Vector3(transform.position.x, Height),5);
+            transform.position = Vector3.Lerp(transform.position,new Vector3(transform.position.x, Height),2);
         }
         if( gameObject.transform.position.x <= resetPosition.transform.position.x)
         {

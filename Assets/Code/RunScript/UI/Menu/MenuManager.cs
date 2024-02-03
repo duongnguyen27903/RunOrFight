@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -10,17 +11,18 @@ public class MenuManager : MonoBehaviour
     private Setting setting;
     private void Start()
     {
+        print("reload scene");
         achivement = FindObjectOfType<Achivement>();
         aboutUs = FindObjectOfType<AboutUs>();
         setting = FindObjectOfType<Setting>();
     }
     public void Play_Pressed()
     {
-        SceneManager.LoadScene("RunScene");
+        SceneManager.LoadSceneAsync("RunScene");
     }
     public void Store_Pressed()
     {
-        SceneManager.LoadScene("Store");
+        SceneManager.LoadSceneAsync("Store");
     }
     public void Achivement_Pressed()
     {

@@ -32,13 +32,13 @@ public class Player : MonoBehaviour
         animator.SetTrigger(ChangeHash);
         animator.SetInteger(StateHash, 4);
     }
-
+    
     //khai bao input cho player
-    protected PlayerInput Input;
+    protected InputManager Input;
     //ham khoi tao input cho player
     public void InitJumpInput()
     {
-        Input = new PlayerInput();
+        Input = new InputManager();
         Input.Player_Run.Jump.started += OnJump;
         Input.Player_Run.Jump.performed += OnJump;
         Input.Player_Run.Jump.canceled += OnJump;

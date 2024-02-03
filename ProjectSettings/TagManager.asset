@@ -11,6 +11,9 @@ TagManager:
   - PlayerRadar
   - IceObstacle
   - FireObstacle
+  - Coin
+  - PlayerRada
+  - Chaser
   layers:
   - Default
   - TransparentFX

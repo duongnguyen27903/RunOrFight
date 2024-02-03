@@ -26,7 +26,7 @@ public class LinkHandler : MonoBehaviour, IPointerClickHandler
     }
 
     public delegate void ClickOnLinkEvent(string keyword);
-    public static event ClickOnLinkEvent OnClickedOnLinkEvent;
+    //public static event ClickOnLinkEvent OnClickedOnLinkEvent;
     public void OnPointerClick(PointerEventData eventData)
     {
         Vector3 mousePosition = new Vector3(eventData.position.x, eventData.position.y, 0);

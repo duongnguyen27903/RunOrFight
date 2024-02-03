@@ -78,17 +78,13 @@ public class StoreManager : MonoBehaviour
     // cac ham quan ly ngoai luong
     public void Home_Pressed()
     {
-        SceneManager.LoadScene("Menu");
+        SceneManager.LoadSceneAsync("Menu");
     }
 
     private void Start()
     {
         SetStoreTab(Tabs.Shop);
         CheckCoins();
-        
-        //PlayerPrefs.SetString("Coins",Coins.ToString());
-        //print(PlayerPrefs.GetString("Coins") == "");
-        //PlayerPrefs.DeleteAll();
     }
 
 }
