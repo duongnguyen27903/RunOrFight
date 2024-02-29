@@ -1,5 +1,5 @@
 {
-    "name": "PlayerInput",
+    "name": "InputManager",
     "maps": [
         {
             "name": "Player_Run",
@@ -34,28 +34,6 @@
                 }
             ],
             "bindings": [
-                {
-                    "name": "",
-                    "id": "03354739-080c-4c92-b725-b673a565d737",
-                    "path": "<Keyboard>/space",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Jump",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "abb5acc8-18be-4b76-a661-d429fec03043",
-                    "path": "<Mouse>/leftButton",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Jump",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
                 {
                     "name": "2D Vector",
                     "id": "44f10dd3-18be-4b23-8bcc-67ee6df2be30",

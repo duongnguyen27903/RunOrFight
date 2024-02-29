@@ -8,8 +8,6 @@ using UnityEngine.UI;
 public class HeroCard : MonoBehaviour
 {
     [SerializeField] private int id;
-    [SerializeField] private Image hero_image;
-    [SerializeField] private TextMeshProUGUI hero_name;
     [SerializeField] private int price;
     public bool owned;
     public bool Iselected;
@@ -30,8 +28,7 @@ public class HeroCard : MonoBehaviour
     {
         id = hero.id;
         current_hero = current;
-        hero_image.sprite = hero.sprite;
-        hero_name.text = hero.name;
+        
         owned = hero.owned;
         Iselected = hero.selected;
         price = hero.price;
@@ -68,7 +65,7 @@ public class HeroCard : MonoBehaviour
         }
         else
         {
-            print("not enough coins");
+            StoreManager.Instance.OpenNotEnoughCoinsPanel();
         }
     }
     public void SelectHero()

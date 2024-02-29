@@ -32,24 +32,10 @@ public class StoreManager : MonoBehaviour
         }
     }
 
-    //quan li tabs
-    public enum Tabs
-    {
-        Shop,Heroes
-    }
-    [SerializeField] private Button Shop;
-    [SerializeField] private Button Heroes;
-    private Tabs current_tab;
-    public void SetStoreTab( Tabs tab )
-    {
-        current_tab = tab;
-        Shop.interactable = (current_tab != Tabs.Shop);
-        Heroes.interactable = (current_tab != Tabs.Heroes);
-    }
-
     //quan ly so luong coins
     [SerializeField] private int Coins;
     [SerializeField] private TextMeshProUGUI Golds;
+    [SerializeField] private GameObject NotEnoughCoinsPanel;
     public int GetCoins()
     {
         return PlayerPrefs.GetInt("Coins",Coins);
@@ -83,8 +69,17 @@ public class StoreManager : MonoBehaviour
 
     private void Start()
     {
-        SetStoreTab(Tabs.Shop);
         CheckCoins();
+        NotEnoughCoinsPanel.SetActive(false);
+    }
+
+    public void OpenNotEnoughCoinsPanel()
+    {
+        NotEnoughCoinsPanel.SetActive(true);
+    }
+    public void CloseNotEnoughCoinsPanel()
+    {
+        NotEnoughCoinsPanel.SetActive(false);
     }
 
 }

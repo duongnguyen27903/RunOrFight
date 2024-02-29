@@ -7,6 +7,7 @@ public class SpawnHero : MonoBehaviour
     [SerializeField] private List<GameObject> Heroes;
     [SerializeField] private int Selected_Hero;
     [SerializeField] private GameObject Chaser;
+    [SerializeField] private Camera Cam;
     private void Awake()
     {
         Selected_Hero = PlayerPrefs.GetInt("selected_hero", 0);

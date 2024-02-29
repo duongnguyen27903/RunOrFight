@@ -14,7 +14,7 @@ public class HeroesContainer : MonoBehaviour
 {
     //sau can chinh sua them, tach thuoc tinh owned va selected ra khoi hero_database
     [SerializeField] private HeroDatabase hero_database;
-    [SerializeField] private HeroCard hero_card_prefab;
+    [SerializeField] private List<HeroCard> hero_card_prefabs;
     [SerializeField] private List<HeroCard> hero_cards;
     public Heroes hero_lists = new();
     private void Start()
@@ -25,7 +25,7 @@ public class HeroesContainer : MonoBehaviour
             hero_lists = JsonUtility.FromJson<Heroes>(s);
             for (int i = 0; i < hero_lists.heroes.Count; i++)
             {
-                HeroCard hero = Instantiate(hero_card_prefab, transform.position + new Vector3(140, 0) + new Vector3(i * 280, 0), Quaternion.identity, transform);
+                HeroCard hero = Instantiate(hero_card_prefabs[i], transform);
                 hero.Init(hero_lists.heroes[i], i);
                 hero_cards.Add(hero);
             }
@@ -34,7 +34,7 @@ public class HeroesContainer : MonoBehaviour
         {
             for (int i = 0; i < hero_database.Count; i++)
             {
-                HeroCard hero = Instantiate(hero_card_prefab, transform.position + new Vector3(140, 0) + new Vector3(i * 280, 0), Quaternion.identity, transform);
+                HeroCard hero = Instantiate(hero_card_prefabs[i], transform);
                 hero.Init(hero_database.characters[i], i);
                 hero_cards.Add(hero);
                 hero_lists.heroes.Add(hero_database.characters[i]);
@@ -42,6 +42,12 @@ public class HeroesContainer : MonoBehaviour
             string hero_list_temp = JsonUtility.ToJson(hero_lists);
             PlayerPrefs.SetString("heroes", hero_list_temp);
         }
+
+        //for( int i=0; i<hero_card_prefabs.Count; i++)
+        //{
+        //    HeroCard hero = Instantiate(hero_card_prefabs[i], transform);
+        //    hero.Init(hero_database.characters[i], i);
+        //}
     }
     public void FindSelectedHero(int current)
     {
@@ -66,7 +72,4 @@ public class HeroesContainer : MonoBehaviour
         hero_lists.heroes[current].owned = true;
         PlayerPrefs.SetString("heroes",JsonUtility.ToJson(hero_lists));
     }
-
-    
-    
 }

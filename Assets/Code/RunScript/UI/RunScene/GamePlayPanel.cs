@@ -10,6 +10,7 @@ public class GamePlayPanel : MonoBehaviour
     private void Start()
     {
         player = FindObjectOfType<PlayerRun>();
+        AudioManager.Instance.PlayMusic(AudioManager.Instance.Music_song[1]);
     }
     public void ActiveFire()
     {
@@ -18,6 +19,10 @@ public class GamePlayPanel : MonoBehaviour
     public void ActiveIce()
     {
         player.ActiveIce();
+    }
+    public void Jumping()
+    {
+        player.Jumping();
     }
     public void FightScene()
     {

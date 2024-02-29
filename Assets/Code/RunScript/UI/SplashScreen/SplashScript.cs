@@ -5,13 +5,27 @@ using UnityEngine.SceneManagement;
 
 public class SplashScript : MonoBehaviour
 {
+    [SerializeField] private CanvasGroup FadeIn;
+    private bool startFadeIn = false;
     private void Awake()
     {
+        FadeIn.alpha = 1.0f;
         StartCoroutine(LoadMenuSence());
     }
     private IEnumerator LoadMenuSence()
     {
-        yield return new WaitForSeconds(4f);
-        SceneManager.LoadScene("Menu");
+        yield return new WaitForSeconds(3f);
+        startFadeIn = true;
+    }
+    private void Update()
+    {
+        if(startFadeIn)
+        {
+            FadeIn.alpha -= Time.deltaTime * 0.5f;
+        }
+        if( FadeIn.alpha <= 0.01)
+        {
+            SceneManager.LoadSceneAsync("Menu");
+        }
     }
 }

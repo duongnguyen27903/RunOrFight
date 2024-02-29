@@ -8,12 +8,12 @@ public class BackGroundController : MonoBehaviour
     [SerializeField] private Material houses3;
     [SerializeField] private Material houses2;
     [SerializeField] private Material housesfountain;
-    [SerializeField] private Material trees;
+    //[SerializeField] private Material trees;
     [SerializeField] private float skysun_speed;
     [SerializeField] private float houses3_speed;
     [SerializeField] private float houses2_speed;
     [SerializeField] private float housesfountain_speed;
-    [SerializeField] private float trees_speed;
+    //[SerializeField] private float trees_speed;
 
     [SerializeField] private int MainTexID;
 
@@ -21,7 +21,7 @@ public class BackGroundController : MonoBehaviour
     private Vector2 offset2;
     private Vector2 offset3;
     private Vector2 offset4;
-    private Vector2 offset5;
+    //private Vector2 offset5;
     void Start()
     {
         MainTexID = Shader.PropertyToID("_MainTex");
@@ -29,7 +29,7 @@ public class BackGroundController : MonoBehaviour
         offset2 = houses3.GetTextureOffset(MainTexID);
         offset3 = houses2.GetTextureOffset(MainTexID);
         offset4 = housesfountain.GetTextureOffset(MainTexID);
-        offset5 = trees.GetTextureOffset(MainTexID);
+        //offset5 = trees.GetTextureOffset(MainTexID);
     }
 
     void Update()
@@ -46,8 +46,8 @@ public class BackGroundController : MonoBehaviour
         offset4 += new Vector2(housesfountain_speed * Time.deltaTime, 0);
         housesfountain.SetTextureOffset(MainTexID, offset4);
 
-        offset5 += new Vector2(trees_speed * Time.deltaTime, 0);
-        trees.SetTextureOffset(MainTexID, offset5);
+        //offset5 += new Vector2(trees_speed * Time.deltaTime, 0);
+        //trees.SetTextureOffset(MainTexID, offset5);
     }
 
     private void Reset()

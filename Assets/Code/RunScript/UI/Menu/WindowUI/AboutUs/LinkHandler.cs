@@ -29,7 +29,7 @@ public class LinkHandler : MonoBehaviour, IPointerClickHandler
     //public static event ClickOnLinkEvent OnClickedOnLinkEvent;
     public void OnPointerClick(PointerEventData eventData)
     {
-        Vector3 mousePosition = new Vector3(eventData.position.x, eventData.position.y, 0);
+        Vector3 mousePosition = new(eventData.position.x, eventData.position.y, 0);
         int linkTaggedText = TMP_TextUtilities.FindIntersectingLink(_textBox, mousePosition,cameraToUse);
 
         //invoke mot su kien

@@ -140,11 +140,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 365
-        y: 401
+        y: 524
         width: 1618
-        height: 3050
+        height: 2927
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -160,12 +160,12 @@ TextureImporter:
       name: roadsign1_1
       rect:
         serializedVersion: 2
-        x: 2113
-        y: 401
+        x: 2115
+        y: 1084
         width: 1618
-        height: 3050
+        height: 2370
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

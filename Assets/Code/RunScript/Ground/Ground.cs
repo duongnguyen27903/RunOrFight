@@ -9,7 +9,7 @@ public class Ground : MonoBehaviour
     private float Height;
     private Collider2D collider2d;
     private float width;
-    private readonly List<string> obstacle_tags = new() { "IceObstacle","FireObstacle"};
+    private readonly List<string> obstacle_tags = new() { "IceObstacle","FireObstacle","Rock"};
     private void OnEnable()
     {
         int update_level = GameManager.Instance.Get_current_level();
@@ -47,7 +47,7 @@ public class Ground : MonoBehaviour
     }
     private void Generate_Obstacles()
     {
-        GameObject obstacle = ObstaclePool.Instance.GetNewObjects(obstacle_tags[Random.Range(0,2)]);
+        GameObject obstacle = ObstaclePool.Instance.GetNewObjects(obstacle_tags[Random.Range(0,obstacle_tags.Count)]);
         obstacle.transform.SetParent(transform, false);
         obstacle.transform.position = transform.position + new Vector3(Random.Range(0, width-1), 1);
         obstacle.SetActive(true);
@@ -79,10 +79,10 @@ public class Ground : MonoBehaviour
     void Update()
     {
         gameObject.transform.position -= new Vector3( moveSpeed * Time.deltaTime,0);
-        if( transform.position.y != Height)
-        {
-            transform.position = Vector3.Lerp(transform.position,new Vector3(transform.position.x, Height),2);
-        }
+        //if( transform.position.y != Height && Random.Range(0, 2) == 1 && SpawnGround.Instance.AllowToSpawn == true)
+        //{
+        //    transform.position = Vector3.Lerp(transform.position,new Vector3(transform.position.x, Height),1);
+        //}
         if( gameObject.transform.position.x <= resetPosition.transform.position.x)
         {
             Grounds_Pool.Instance.Add_Grounds(gameObject);

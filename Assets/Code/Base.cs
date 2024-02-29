@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Base : MonoBehaviour
+public abstract class Base : MonoBehaviour
 {
     protected virtual void Reset()
     {

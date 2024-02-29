@@ -17,7 +17,7 @@ public class ParticleObstacle : Obstacle
     }
     private void OnParticleCollision(GameObject other)
     {
-        if(other.gameObject.CompareTag("LeftSideCollider"))
+        if(other.CompareTag("LeftSideCollider"))
         {
             gameObject.SetActive(false);
         }

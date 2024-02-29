@@ -6,8 +6,6 @@ using UnityEngine;
 public class Hero
 {
     public int id;
-    public Sprite sprite;
-    public string name;
     public int price;
     public bool owned;
     public bool selected;

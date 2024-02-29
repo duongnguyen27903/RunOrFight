@@ -17,7 +17,16 @@ public class PlayerRun : Player
     [SerializeField] private int JumpCount;
     public override void OnJump(UnityEngine.InputSystem.InputAction.CallbackContext context)
     {
-        if (context.performed && (IsGrounded() || JumpCount < 10))
+        if (context.performed && (IsGrounded() || JumpCount < 2))
+        {
+            rb.AddForce(new Vector2(rb.velocity.x, JumpForce), ForceMode2D.Impulse);
+            JumpCount++;
+        }
+    }
+
+    public void Jumping()
+    {
+        if (IsGrounded() || JumpCount < 2)
         {
             rb.AddForce(new Vector2(rb.velocity.x, JumpForce), ForceMode2D.Impulse);
             JumpCount++;
